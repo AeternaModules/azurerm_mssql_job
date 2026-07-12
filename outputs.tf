@@ -1,3 +1,7 @@
+output "mssql_jobs_id" {
+  description = "Map of id values across all mssql_jobs, keyed the same as var.mssql_jobs"
+  value       = { for k, v in azurerm_mssql_job.mssql_jobs : k => v.id }
+}
 output "mssql_jobs_description" {
   description = "Map of description values across all mssql_jobs, keyed the same as var.mssql_jobs"
   value       = { for k, v in azurerm_mssql_job.mssql_jobs : k => v.description }
